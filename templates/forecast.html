@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forecasting</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Top Predicted Demands</h2>
+      <table>
+        <tr>
+          <th>Product ID</th>
+          <th>Store ID</th>
+          <th>Predicted Demand</th>
+        </tr>
+        {% for item in forecasts %}
+        <tr>
+          <td>{{ item['Product ID'] }}</td>
+          <td>{{ item['Store ID'] }}</td>
+          <td>{{ item['Predicted Demand'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Reorder Plan</h2>
+      <table>
+        <tr>
+          <th>Product ID</th>
+          <th>Stock</th>
+          <th>Reorder Point</th>
+          <th>Reorder Quantity</th>
+        </tr>
+        {% for item in reorder_plan %}
+        <tr>
+          <td>{{ item['Product ID'] }}</td>
+          <td>{{ item['Stock Levels'] }}</td>
+          <td>{{ item['Reorder Point'] }}</td>
+          <td>{{ item['Reorder Quantity'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <h2>Inventory Alerts</h2>
+      <table>
+        <tr>
+          <th>Alert Type</th>
+          <th>Details</th>
+        </tr>
+        {% for alert in alerts %}
+        <tr>
+          <td>{{ alert['Alert Type'] }}</td>
+          <td>{{ alert['Details'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

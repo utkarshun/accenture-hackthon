@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pricing Optimization</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Optimal Price Suggestion</h2>
+      <p>Recommended Price: ₹{{ price }}</p>
+      <p>Expected Profit: ₹{{ profit }}</p>
+
+      <h3>Predict Sales Volume</h3>
+      <form method="POST" action="/predict">
+        <input name="price" placeholder="Price" required /><br />
+        <input name="stock" placeholder="Stock" required /><br />
+        <input
+          name="promotion"
+          placeholder="Promotion (0 or 1)"
+          required
+        /><br />
+        <input name="rating" placeholder="Rating" required /><br />
+        <input name="reviews" placeholder="Reviews" required /><br />
+        <button type="submit">Predict</button>
+      </form>
+
+      {% if predicted_sales %}
+      <h4>Predicted Sales Volume: {{ predicted_sales }}</h4>
+      {% endif %}
+    </div>
+  </body>
+</html>
